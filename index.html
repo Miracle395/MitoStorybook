@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Scroll Stories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #f4f1e8;
+      font-family: 'Cinzel', serif;
+      color: #3b2f2f;
+      overflow-x: hidden;
+    }
+
+    .scroll-section {
+      padding: 100px 20px;
+      background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      background-color: #fdfaf4;
+      border-top: 10px solid #c2a76e;
+      border-bottom: 10px solid #c2a76e;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.08);
+      position: relative;
+      text-align: center;
+      transition: all 0.6s ease;
+    }
+
+    .scroll-section:nth-child(even) {
+      background-color: #f9f6f1;
+    }
+
+    .scroll-section h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #6d4c41;
+      text-shadow: 1px 1px 0 #e0c9a6;
+    }
+
+    .scroll-link {
+      display: inline-block;
+      font-size: 1.2rem;
+      padding: 10px 25px;
+      background-color: #c2a76e;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-link:hover {
+      background-color: #a58656;
+      transform: scale(1.05);
+    }
+    
+  </style>
+</head>
+<body>
+
+<nav style="position: sticky; top: 0; background: #c2a76e; font-family: 'Cinzel', serif; padding: 12px 25px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); z-index: 1000;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 1.8rem; color: white; font-weight: bold;">Mito Storybook</div>
+    
+    <button id="menuToggle" style="display: none; font-size: 1.5rem; background: none; border: none; color: white; cursor: pointer;">&#9776;</button>
+    
+    <div id="navLinks" style="display: flex; gap: 25px;">
+      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem;">Home</a>
+      <a href="mito1.html" style="color: white; text-decoration: none; font-size: 1rem;">Zootosis</a>
+      <a href="mito2.html" style="color: white; text-decoration: none; font-size: 1rem;">Yapping Morse</a>
+      <a href="mito3.html" style="color: white; text-decoration: none; font-size: 1rem;">Find The Eggs</a>
+      <a href="mito4.html" style="color: white; text-decoration: none; font-size: 1rem;">Mitosis DNA</a>
+    </div>
+  </div>
+
+  <div id="dropdownMenu" style="display: none; position: fixed; top: 60px; left: 0; right: 0; background: #fdfaf4; box-shadow: 0 4px 12px rgba(0,0,0,0.2); padding: 20px; z-index: 999; flex-direction: column; text-align: center;">
+    <a href="mito1.html" style="margin: 10px 0; color: #3b2f2f; text-decoration: none; font-size: 1.1rem;">Zootosis</a>
+   
+    <a href="mito2.html" style="margin: 10px 0; color: #3b2f2f; text-decoration: none; font-size: 1.1rem;">Yapping Morse</a>
+    <a href="mito3.html" style="margin: 10px 0; color: #3b2f2f; text-decoration: none; font-size: 1.1rem;">Find The Eggs</a>
+    <a href="mito4.html" style="margin: 10px 0; color: #3b2f2f; text-decoration: none; font-size: 1.1rem;">Mitosis DNA</a>
+    <a href="mito5.html" style="margin: 10px 0; color: #3b2f2f; text-decoration: none; font-size: 1.1rem;">Theo Straddle</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      const links = dropdownMenu.querySelectorAll("a");
+      const currentPath = window.location.pathname.split("/").pop();
+
+      // Highlight active link
+      [...links, ...navLinks.querySelectorAll("a")].forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.style.fontWeight = "bold";
+          link.style.textDecoration = "underline";
+        }
+      });
+
+      // Responsive behavior
+      function handleResize() {
+        if (window.innerWidth < 650) {
+          toggle.style.display = "block";
+          navLinks.style.display = "none";
+        } else {
+          toggle.style.display = "none";
+          navLinks.style.display = "flex";
+          dropdownMenu.style.display = "none";
+        }
+      }
+
+      toggle.addEventListener("click", () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === "flex" ? "none" : "flex";
+      });
+
+      window.addEventListener("resize", handleResize);
+      handleResize();
+    });
+  </script>
+</nav>
+
+  <div class="scroll-section">
+    <h2>Story 1: Zootosis</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1rem;">
+  Zootosis is the epic tale of Mitosis and Morph uniting forces to unlock Matrix Vaults.
+</p>
+    <a class="scroll-link" href="mito1.html">Read More</a>
+  </div>
+
+  <div class="scroll-section">
+    <h2>Story 2: The Yapping Morse</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1rem;">
+  Kaito meets Mitosis. Together, they reward the voices that echo loudest.
+</p>
+    <a class="scroll-link" href="mito2.html">Read More</a>
+  </div>
+
+  <div class="scroll-section">
+    <h2>Story 3: Find The Eggs</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1rem;">
+  In the mystical world of Mitosis, adventurers were summoned to seek hidden eggs scattered across the realm.
+</p>
+    <a class="scroll-link" href="mito3.html">Read More</a>
+  </div>
+
+  <div class="scroll-section">
+    <h2>Story 4: Mitosis DNA</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1rem;">
+  In the realm of Mitosis, the DNA Program weaves MITO, gMITO, and LMITO into a powerful alliance.
+</p>
+    <a class="scroll-link" href="mito4.html">Read More</a>
+  </div>
+
+  <div class="scroll-section">
+    <h2>Story 5: Theo Straddle Vault</h2>
+    <p style="max-width: 600px; margin: 0 auto 20px; font-size: 1rem;">
+  Theo Straddle Vault awaited, where weETH transformed into maweETH, earning rewards without limits.
+</p>
+    <a class="scroll-link" href="mito5.html">Read More</a>
+  </div>
+
+</body>
+</html>
